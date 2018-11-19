@@ -7,6 +7,8 @@ public class Player2 : MonoBehaviour
 {
     public string[] animType;
     Animator animator;
+    public GameObject P1HP;
+    public GameObject attackEffect;
 
     /// <summary>
     /// 攻撃状態ならtrue
@@ -93,6 +95,11 @@ public class Player2 : MonoBehaviour
 
         IsDamaged = true;
         StartCoroutine(damaged());
+
+        P1HP.GetComponent<SetSpriteToHP>().addHP();
+
+        //コピーして表示
+        Instantiate(attackEffect, gameObject.transform.position, Quaternion.identity);
     }
 
     // ダメージを受けたフラグを管理するコルーチン  

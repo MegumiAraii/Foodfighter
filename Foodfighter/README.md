@@ -5,5 +5,4 @@
 
 ![gazou](./seisaku.png "サンプル")
 
-Sample Unity project for Quest game .
-This sample includes changing animation,  moving player character by changing velocity of Rigidbody2D, collision with obstacles, palyer chasing camera .
+世界初！食べ物格闘ゲームです。
