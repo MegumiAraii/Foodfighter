@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     public enum Player
     {
         Player1,
-        Player2
+        Player2,
+        Void
     }
 
     //勝者
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     //「そこまで！」の表示オブジェクト
     public GameObject KO_Object;
+    //「両者互角！」の表示オブジェクト
+    public GameObject DrawGame_Object;
 
 
     // Use this for initialization
@@ -62,8 +65,20 @@ public class GameManager : MonoBehaviour
 
         //ゲームセットの処理を書く⬇️
 
-        //KO表示を起動する！
-        KO_Object.SetActive(true);
+        switch( winner)
+        {
+            case Player.Player1:
+            case Player.Player2:
+                //KO表示を起動する！
+                KO_Object.SetActive(true);
+                break;
+
+                //引き分け表示を起動する！
+            case Player.Void:
+            default:
+                DrawGame_Object.SetActive(true);
+                break;
+        }
 
         Winner = winner;
 
@@ -81,6 +96,9 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("Food_fighter's_winnori");
                 break;
             case Player.Player2:
+                SceneManager.LoadScene("Food_fighter's_wingohan");
+                break;
+            case Player.Void:
                 SceneManager.LoadScene("Food_fighter's_wingohan");
                 break;
         }

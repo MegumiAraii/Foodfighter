@@ -18,9 +18,19 @@ public class TimerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (totalTime <= 0.0f)
+            return;
+        
         totalTime -= Time.deltaTime;
-        seconds = (int)totalTime;
-        timerText.text = seconds.ToString();
 
+        //  タイムアウト！ 引き分け
+        if( totalTime <= 0.0f )
+        {
+            totalTime = 0;
+            GameManager.Instance.GameSet(GameManager.Player.Void);
+        }
+            
+        seconds = (int)Mathf.Ceil( totalTime );
+        timerText.text = seconds.ToString();
     }
 }
