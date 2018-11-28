@@ -74,7 +74,7 @@ public class Player2 : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
 
             int animIndex = Random.Range(0, animType.Length);
-            Debug.Log(animType[animIndex]);
+            // Debug.Log(animType[animIndex]);
 
             animator.SetBool(animType[animIndex], true);
         }
@@ -91,7 +91,7 @@ public class Player2 : MonoBehaviour
         if (IsDead)
             return;
         
-        Debug.Log("Player 2 Damaged!");
+        // Debug.Log("Player 2 Damaged!");
 
         IsDamaged = true;
         StartCoroutine(damaged());
@@ -131,7 +131,7 @@ public class Player2 : MonoBehaviour
         //  on damage
         var slider = hpbar.GetComponent<Slider>();
         var hp = slider.value;
-        hp -= 5;
+        hp -= 4;
         slider.value = hp;
 
         if (hp > 0)
@@ -141,7 +141,7 @@ public class Player2 : MonoBehaviour
         else
         {
             //HPが０以下なので、「そこまで！」
-            GameManager.Instance.GameSet(GameManager.Player.Player2);
+            GameManager.Instance.GameSet(1);
             animator.SetBool("die", true);
         }
     }

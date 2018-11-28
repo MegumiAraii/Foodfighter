@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Food_fighter's_wingohan.unity
     guid: 3664e7a88868646b7b5cd27bb2bed526
+  - enabled: 1
+    path: Assets/Food_drawgame.unity
+    guid: 61632d100c31c498ba7128e78c7ab126
   m_configObjects: {}

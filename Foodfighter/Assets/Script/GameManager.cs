@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     //勝者
     public Player Winner;
+    int winnerNumber;
 
     /// <summary>
     /// ゲームの現在の状態
@@ -56,31 +57,33 @@ public class GameManager : MonoBehaviour
     }
 
     // ゲームセットになったら呼ばれる！
-    public void GameSet( Player winner )
+    // public void GameSet( Player winner )
+    public void GameSet(int playerNumber)
     {
         if (CurrentState == State.GameSet)
             return;
 
         CurrentState = State.GameSet;
 
-        //ゲームセットの処理を書く⬇️
 
-        switch( winner)
+
+        //ゲームセットの処理を書く⬇️
+        switch (playerNumber)
         {
-            case Player.Player1:
-            case Player.Player2:
+            case 1:
+            case 2:
                 //KO表示を起動する！
                 KO_Object.SetActive(true);
                 break;
 
-                //引き分け表示を起動する！
-            case Player.Void:
+            //引き分け表示を起動する！
+            case 0:
             default:
                 DrawGame_Object.SetActive(true);
                 break;
         }
 
-        Winner = winner;
+        winnerNumber = playerNumber;
 
         //指定秒のあとでKOシーン切り替え処理を呼び出す
         Invoke("ChangeSceneWhenKO", 7.0f );
@@ -90,16 +93,16 @@ public class GameManager : MonoBehaviour
     void ChangeSceneWhenKO()
     {
         //勝者別の処理
-        switch (Winner)
+        switch (winnerNumber)
         {
-            case Player.Player1:
+            case 1:
+                SceneManager.LoadScene("Food_fighter's_wingohan");
+                break;
+            case 2:
                 SceneManager.LoadScene("Food_fighter's_winnori");
                 break;
-            case Player.Player2:
-                SceneManager.LoadScene("Food_fighter's_wingohan");
-                break;
-            case Player.Void:
-                SceneManager.LoadScene("Food_fighter's_wingohan");
+            case 0:
+                SceneManager.LoadScene("Food_drawgame");
                 break;
         }
     }
