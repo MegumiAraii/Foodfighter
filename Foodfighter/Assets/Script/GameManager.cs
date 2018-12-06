@@ -35,10 +35,26 @@ public class GameManager : MonoBehaviour
 
     public State CurrentState = State.Fighting;
 
+    /// <summary>
+    /// The Game object.
+    /// </summary>
+    public GameObject Game_Object;
+
     //「そこまで！」の表示オブジェクト
     public GameObject KO_Object;
     //「両者互角！」の表示オブジェクト
     public GameObject DrawGame_Object;
+
+    //「ごはんの必殺技」の表示オブジェクト
+    public GameObject Cutingohan_Object;
+    //「のりの必殺技」の表示オブジェクト
+    public GameObject Cutinnori_Object;
+
+    Player1 Player1_Object;
+    Player2 Player2_Object;
+
+    public SetSpriteToHP WazaGauge1P;
+    public SetSpriteToHP WazaGauge2P;
 
 
     // Use this for initialization
@@ -47,13 +63,57 @@ public class GameManager : MonoBehaviour
         if (Instance != null)
             throw new System.Exception(gameObject.name);
 
+        Player1_Object = GetComponentInChildren<Player1>();
+        Player2_Object = GetComponentInChildren<Player2>();
+
         Instance = this;
+
+        StartCoroutine( ManageGame());
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    /// <summary>
+    /// ゲームを管理します
+    /// </summary>
+    /// <returns>The game.</returns>
+    IEnumerator ManageGame()
+    {
+        // メインプログラム
+        while( CurrentState != State.GameSet )
+        {
+            // 必殺技の判定
+            if( Input.GetKeyDown( KeyCode.Return) )
+            {
+                // ゲージが満タンか
+                if( WazaGauge1P.IsSpecialAttackReady )
+                {
+                    // ゲーム本編の動きを止める
+                    Game_Object.SetActive(false);
+
+                    //　必殺技演出！
+                    Cutingohan_Object.SetActive(true);
+
+                    // 必殺技の終了待ち
+                    while (Cutingohan_Object.activeSelf)
+                        yield return null;
+
+                    //  スペシャルアタックのゲージをリセット
+                    WazaGauge1P.resetHP();
+
+                    // ゲーム再開
+                    Game_Object.SetActive(true);
+                }
+            }
+
+            yield return null;
+        }
+
+        // 決着したので終了
     }
 
     // ゲームセットになったら呼ばれる！
@@ -64,8 +124,6 @@ public class GameManager : MonoBehaviour
             return;
 
         CurrentState = State.GameSet;
-
-
 
         //ゲームセットの処理を書く⬇️
         switch (playerNumber)

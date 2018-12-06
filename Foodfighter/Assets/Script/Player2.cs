@@ -11,6 +11,17 @@ public class Player2 : MonoBehaviour
     public GameObject attackEffect;
 
     /// <summary>
+    /// 操作モード
+    /// </summary>
+    public enum ControlMode
+    {
+        Human, // 人間
+        AI     // AI
+    }
+
+    public ControlMode Mode = ControlMode.AI;
+
+    /// <summary>
     /// 攻撃状態ならtrue
     /// </summary>
     public bool IsAttacking;
@@ -38,11 +49,15 @@ public class Player2 : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        StartCoroutine("Attack");
     }
 
-    // Update is called once per frame
-    void Update()
+	private void OnEnable()
+	{
+        StartCoroutine("Attack");
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         animator.SetBool("damage", IsDamaged);
 
@@ -54,14 +69,22 @@ public class Player2 : MonoBehaviour
         if (IsDead)
             return;
 
-        Vector3 diff = transform.position - Enemy.transform.position;
+        switch( Mode )
+        {
+            case ControlMode.Human:
+                
+                break;
 
-        if (diff.x > +1)
-            transform.position += Vector3.left * 0.05f;
-        else
-        if (diff.x < -1)
-            transform.position += Vector3.right * 0.05f;
+            case ControlMode.AI:
+                Vector3 diff = transform.position - Enemy.transform.position;
 
+                if (diff.x > +1)
+                    transform.position += Vector3.left * 0.05f;
+                else
+                if (diff.x < -1)
+                    transform.position += Vector3.right * 0.05f;
+                break;
+        }
     }
 
     // コルーチン  
@@ -131,7 +154,7 @@ public class Player2 : MonoBehaviour
         //  on damage
         var slider = hpbar.GetComponent<Slider>();
         var hp = slider.value;
-        hp -= 4;
+        hp -= 3;
         slider.value = hp;
 
         if (hp > 0)

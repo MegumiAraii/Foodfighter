@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Food_fightter's_select.unity
     guid: 24bbf9945603748968940b6e6a9fc5a2
   - enabled: 1
+    path: Assets/Food_fightter's_select2.unity
+    guid: d9906e09d500b400ebc9ce7759b76502
+  - enabled: 1
     path: Assets/Food_fighter's_VS.unity
     guid: 03108ab523d574c88bd93ea541fa0bb3
+  - enabled: 1
+    path: Assets/Food_fighter's_VS2.unity
+    guid: c4b12b764ecd74242967479c1514e77b
   - enabled: 1
     path: Assets/Food_fighter's_sousasetumei.unity
     guid: eb27568bb9bef428a80cf170ae9bf686

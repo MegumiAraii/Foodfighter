@@ -20,6 +20,12 @@ public class SetSpriteToHP : MonoBehaviour {
 		
 	}
 
+    /// <summary>
+    /// 必殺技が使えるならtrue
+    /// </summary>
+    /// <returns><c>true</c>, if special attack ready was ised, <c>false</c> otherwise.</returns>
+    public bool IsSpecialAttackReady { get { return currentHP >= sprites.Length; } }
+
     public void addHP()
     {
         currentHP++;

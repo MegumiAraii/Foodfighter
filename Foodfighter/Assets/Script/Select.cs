@@ -23,5 +23,14 @@ public class Select : MonoBehaviour {
         {
             SceneManager.LoadScene("Food_fighter's_title");
         }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            SceneManager.LoadScene("Food_fightter's_select2");
+        }
+       
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            SceneManager.LoadScene("Food_fightter's_select2");
+        }
     }
 }
