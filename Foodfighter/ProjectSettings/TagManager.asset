@@ -9,6 +9,7 @@ TagManager:
   - Attacker
   - Player1HP
   - kabe
+  - Star
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,9 @@ public class Player2 : MonoBehaviour
     Animator animator;
     public GameObject P1HP;
     public GameObject attackEffect;
+    public GameObject getEffect;
+    public bool pause = false;
+    int hp;
 
     /// <summary>
     /// 操作モード
@@ -68,6 +71,9 @@ public class Player2 : MonoBehaviour
         //死んでたら何もしない
         if (IsDead)
             return;
+        if(pause){
+            return;
+        }
 
         switch( Mode )
         {
@@ -117,6 +123,7 @@ public class Player2 : MonoBehaviour
         // Debug.Log("Player 2 Damaged!");
 
         IsDamaged = true;
+        Debug.Log("StartCoroutine damaged");
         StartCoroutine(damaged());
 
         P1HP.GetComponent<SetSpriteToHP>().addHP();
@@ -128,9 +135,12 @@ public class Player2 : MonoBehaviour
     // ダメージを受けたフラグを管理するコルーチン  
     private IEnumerator damaged()
     {
+        Debug.Log("damaged started");
         // n秒待機してから、ダメージ状態を解除する
         yield return new WaitForSeconds(1.0f);
+        Debug.Log("damaged 1");
         IsDamaged = false;
+        Debug.Log("damaged 2");
     }
 
     //ダメージを受けました
@@ -151,11 +161,9 @@ public class Player2 : MonoBehaviour
         if (!Enemy.IsAttacking)
             return;
 
-        //  on damage
-        var slider = hpbar.GetComponent<Slider>();
-        var hp = slider.value;
-        hp -= 3;
-        slider.value = hp;
+
+
+        damaged(3);
 
         if (hp > 0)
         {
@@ -167,6 +175,15 @@ public class Player2 : MonoBehaviour
             GameManager.Instance.GameSet(1);
             animator.SetBool("die", true);
         }
+
+    }
+
+    public void damaged(int v)
+    {
+        var slider = hpbar.GetComponent<Slider>();
+        hp = (int)slider.value;
+        hp -= v;
+        slider.value = hp;
     }
 }
 

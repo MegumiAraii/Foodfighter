@@ -93,7 +93,9 @@ public class GameManager : MonoBehaviour
                 if( WazaGauge1P.IsSpecialAttackReady )
                 {
                     // ゲーム本編の動きを止める
-                    Game_Object.SetActive(false);
+                    // Game_Object.SetActive(false);
+
+                    Player2_Object.pause = true;
 
                     //　必殺技演出！
                     Cutingohan_Object.SetActive(true);
