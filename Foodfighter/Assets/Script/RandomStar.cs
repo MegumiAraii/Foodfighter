@@ -23,7 +23,7 @@ public class RandomStar : MonoBehaviour {
     {
         numberOfEnemys = 0;
         elapsedTime = 0f;
-        StartCoroutine("WaitAndDestoy");
+       
     }
 
 

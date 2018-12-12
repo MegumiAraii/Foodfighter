@@ -185,6 +185,16 @@ public class Player2 : MonoBehaviour
         hp -= v;
         slider.value = hp;
     }
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+
+        if (coll.gameObject.tag == "Star")
+        {
+            Instantiate(getEffect, coll.gameObject.transform.position, Quaternion.identity);
+
+            Destroy(coll.gameObject);
+        }
+    }
 }
 
 

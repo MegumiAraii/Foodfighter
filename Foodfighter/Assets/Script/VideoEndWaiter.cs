@@ -7,6 +7,7 @@ public class VideoEndWaiter : MonoBehaviour
 {
     VideoPlayer videoPlayer_;
     public Player2 Player2_Object;
+    public Player1 Player1_Object;
     public GameObject damageTarget;
 
     // Use this for initialization

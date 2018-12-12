@@ -1306,10 +1306,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Star: {fileID: 1180704372509642, guid: 2dbc6bddfed8248e598e85b2455ebd96, type: 2}
   getEffect: {fileID: 0}
-  LifeTime: 1
+  LifeTime: 0
   star:
   - {fileID: 1180704372509642, guid: 2dbc6bddfed8248e598e85b2455ebd96, type: 2}
-  appearNextTime: 1
+  appearNextTime: 15
   maxNumOfEnemys: 2
 --- !u!4 &294129995
 Transform:
@@ -1710,8 +1710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: 142}
-  m_SizeDelta: {x: 250, y: 32}
+  m_AnchoredPosition: {x: -149, y: 135}
+  m_SizeDelta: {x: 232, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381045074
 MonoBehaviour:
@@ -1836,6 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player2_Object: {fileID: 248000460}
+  Player1_Object: {fileID: 0}
   damageTarget: {fileID: 248000454}
 --- !u!1 &541341313
 GameObject:
@@ -1918,6 +1919,83 @@ Transform:
   m_Father: {fileID: 1944254948}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &577708361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577708362}
+  - component: {fileID: 577708364}
+  - component: {fileID: 577708363}
+  m_Layer: 0
+  m_Name: Cutinnori
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &577708362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577708361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1668764284}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577708363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577708361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe35b6873f8d64ea0ac81252425ccadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player2_Object: {fileID: 0}
+  Player1_Object: {fileID: 847830207}
+  damageTarget: {fileID: 847830201}
+--- !u!328 &577708364
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577708361}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 9ad7ebcd172d843d7a5b0c7d838e5daf, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 1806143074}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
 --- !u!1 &616427783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,7 +2860,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getEffect: {fileID: 1250673001095702, guid: 9f7db5bb42af7415e899cca7a6cc6d10, type: 2}
-  YugeEffect: {fileID: 0}
   P2HP: {fileID: 1105109953}
   speed: 5
   IsAttacking: 0
@@ -2895,6 +2972,48 @@ Transform:
   m_Father: {fileID: 616427784}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1094989852
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4097619159570720, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.48959693
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097619159570720, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.5785723
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097619159570720, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5.6528845
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097619159570720, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097619159570720, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097619159570720, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097619159570720, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097619159570720, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83720a2c9021e43be855e13f4818b14f, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1105109953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,7 +3767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1362574281
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4084,8 +4203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: 142}
-  m_SizeDelta: {x: 250, y: 32}
+  m_AnchoredPosition: {x: 149, y: 135}
+  m_SizeDelta: {x: 232, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481863592
 MonoBehaviour:
@@ -4149,7 +4268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1494010280
 Transform:
   m_ObjectHideFlags: 0
@@ -4308,48 +4427,6 @@ Transform:
   m_Father: {fileID: 692307310}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1594075890
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1594075892}
-  - component: {fileID: 1594075891}
-  m_Layer: 0
-  m_Name: Gametimer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1594075891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594075890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4476d15398ccb451c9ab0806788908ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Timetoback: 120
-  StartSceneName: Food_fighter's_title
---- !u!4 &1594075892
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594075890}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48959693, y: -0.5785723, z: -5.6528845}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1621513880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4440,6 +4517,7 @@ Transform:
   - {fileID: 1345969624}
   - {fileID: 282798423}
   - {fileID: 482157151}
+  - {fileID: 577708362}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4716,7 +4794,7 @@ AudioListener:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1806143072}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1806143074
 Camera:
   m_ObjectHideFlags: 0

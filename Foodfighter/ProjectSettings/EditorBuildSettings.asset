@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Food_fighter's_sousasetumei.unity
     guid: eb27568bb9bef428a80cf170ae9bf686
   - enabled: 1
+    path: Assets/Food_fighter's_sousasetumei2.unity
+    guid: a96ebabaf2881452599e86f6704c6a0e
+  - enabled: 1
     path: Assets/Food_fighter's.unity
     guid: 33d81cd5503e04f8388a83ccac547c7f
   - enabled: 1
@@ -33,6 +36,15 @@ EditorBuildSettings:
     path: Assets/Food_fighter's_wingohan.unity
     guid: 3664e7a88868646b7b5cd27bb2bed526
   - enabled: 1
+    path: Assets/Food_fighter's_winpan.unity
+    guid: 8cc45c984b56e4f8387aea6d91f04b5a
+  - enabled: 1
+    path: Assets/Food_fighter's_winjam.unity
+    guid: d4f92f9bf60914885ad1f4d55794d9fc
+  - enabled: 1
     path: Assets/Food_drawgame.unity
     guid: 61632d100c31c498ba7128e78c7ab126
+  - enabled: 1
+    path: Assets/Food_drawgame2.unity
+    guid: 6289c810f72ca469186fc13b728bf9e7
   m_configObjects: {}
