@@ -87,8 +87,12 @@ public class GameManager : MonoBehaviour
         while( CurrentState != State.GameSet )
         {
             // 必殺技の判定
-            if( Input.GetKeyDown( KeyCode.Return) )
+            if( Input.GetKeyDown( KeyCode.Return))
             {
+                /*if (Input.GetButtonDown("Cutin"))
+                {
+                }
+                    Debug.Log("Cutin");*/
                 // ゲージが満タンか
                 if( WazaGauge1P.IsSpecialAttackReady )
                 {

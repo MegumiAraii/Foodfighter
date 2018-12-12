@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RandomStar : MonoBehaviour {
     public GameObject Star;
+    public GameObject getEffect;
+    public float LifeTime = 1.0f;
 
     //　出現させるアイテムを入れておく
     [SerializeField] GameObject[] star;
@@ -21,7 +23,9 @@ public class RandomStar : MonoBehaviour {
     {
         numberOfEnemys = 0;
         elapsedTime = 0f;
+        StartCoroutine("WaitAndDestoy");
     }
+
 
     // Update is called once per frame
     void Update()
@@ -41,9 +45,14 @@ public class RandomStar : MonoBehaviour {
 
             //コピーして表示
             Instantiate(Star, gameObject.transform.position, Quaternion.identity);
-        
-           
-           
+
         }
+        }
+    private IEnumerator WaitForDestoy()
+    {
+        // 1秒待つ  
+        yield return new WaitForSeconds(LifeTime);
+
+        Destroy(gameObject);
     }
 }
