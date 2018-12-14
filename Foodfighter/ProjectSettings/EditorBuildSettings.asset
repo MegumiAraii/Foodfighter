@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Food_fighter's.unity
     guid: 33d81cd5503e04f8388a83ccac547c7f
   - enabled: 1
+    path: Assets/Food_fighter's2.unity
+    guid: 1aaf455028d6545e0a4fad1035ae2d67
+  - enabled: 1
     path: Assets/Food_fighter's_winnori.unity
     guid: 3da45b886711e4168a320143a35ee6dc
   - enabled: 1
