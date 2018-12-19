@@ -12,11 +12,11 @@ public class Foodfighter: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButtonDown("Back"))
         {
             SceneManager.LoadScene("Food_fighter's_title");
         }
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetButtonDown("Start"))
         {
             SceneManager.LoadScene("Food_fighter's_sousasetumei");
         }

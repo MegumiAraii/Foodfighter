@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     public SetSpriteToHP WazaGauge1P;
     public SetSpriteToHP WazaGauge2P;
+    public string[] winScene;
 
 
     // Use this for initialization
@@ -78,6 +79,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Cutin");
         }
+        if (Input.GetButtonDown("Cutin2"))
+        {
+            Debug.Log("Cutin2");
+        }
+
 
     }
 
@@ -91,7 +97,7 @@ public class GameManager : MonoBehaviour
         while( CurrentState != State.GameSet )
         {
             // 必殺技の判定
-            if( Input.GetKeyDown( KeyCode.Return))
+            if( Input.GetKeyDown( KeyCode.Return) || Input.GetButtonDown("Cutin") )
             {
                 /*if (Input.GetButtonDown("Cutin"))
                 {
@@ -114,6 +120,35 @@ public class GameManager : MonoBehaviour
 
                     //  スペシャルアタックのゲージをリセット
                     WazaGauge1P.resetHP();
+
+                    // ゲーム再開
+                    Game_Object.SetActive(true);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Cutin2"))
+            {
+                /*if (Input.GetButtonDown("Cutin"))
+                {
+                }
+                    Debug.Log("Cutin");*/
+                // ゲージが満タンか
+                if (WazaGauge2P.IsSpecialAttackReady)
+                {
+                    // ゲーム本編の動きを止める
+                    // Game_Object.SetActive(false);
+
+                    Player1_Object.pause = true;
+
+                    //　必殺技演出！
+                    Cutinnori_Object.SetActive(true);
+
+                    // 必殺技の終了待ち
+                    while (Cutingohan_Object.activeSelf)
+                        yield return null;
+
+                    //  スペシャルアタックのゲージをリセット
+                    WazaGauge2P.resetHP();
 
                     // ゲーム再開
                     Game_Object.SetActive(true);
@@ -161,6 +196,10 @@ public class GameManager : MonoBehaviour
     void ChangeSceneWhenKO()
     {
         //勝者別の処理
+        SceneManager.LoadScene(winScene[winnerNumber]);
+
+        /*
+        //勝者別の処理
         switch (winnerNumber)
         {
             case 1:
@@ -172,6 +211,6 @@ public class GameManager : MonoBehaviour
             case 0:
                 SceneManager.LoadScene("Food_drawgame");
                 break;
-        }
+        }*/
     }
 }

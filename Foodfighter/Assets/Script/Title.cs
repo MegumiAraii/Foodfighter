@@ -16,10 +16,14 @@ public class Title : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetButtonDown("Kettei"))
         {
-            
             SceneManager.LoadScene("Food_fightter's_select");
         }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene("Food_fightter's_select");
+        }
+
     }
 }

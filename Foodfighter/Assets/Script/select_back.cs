@@ -15,7 +15,7 @@ public class select_back : MonoBehaviour
     void Update()
     {
         // 17秒経過したか
-        if (Time.time - startTime > 17f)
+        if (Time.time - startTime > 18f)
         {
             // シーン切り替え
             SceneManager.LoadScene("Food_fightter's_select");

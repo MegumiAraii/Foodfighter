@@ -20,7 +20,7 @@ public class sousasetumei : MonoBehaviour
             // シーン切り替え
             SceneManager.LoadScene("Food_fighter's");
         }
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetButtonDown("Kettei"))
         {
             SceneManager.LoadScene("Food_fighter's");
         }

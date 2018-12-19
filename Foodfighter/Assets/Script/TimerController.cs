@@ -22,7 +22,7 @@ public class TimerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+            /*
         if (Input.GetKeyDown("joystick button 0"))
         {
             Debug.Log("button0");
@@ -103,7 +103,7 @@ public class TimerController : MonoBehaviour
         {
             Debug.Log("button19");
         }
-        */
+
         /*
         if (Input.GetKeyDown("joystick button 20"))
         {
@@ -150,10 +150,11 @@ public class TimerController : MonoBehaviour
             Debug.Log("button30");
         }
         */
-       // if (Input.GetButtonDown("Attack"))
-        //{
-        //    Debug.Log("Attack");
-        //}
+
+        if (Input.GetButtonDown("Left"))
+        {
+            Debug.Log("Left");
+        }
 
         if (totalTime <= 0.0f)
             return;

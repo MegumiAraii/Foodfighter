@@ -12,20 +12,20 @@ public class Onigiri_selectback : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetButtonDown("Kettei"))
         {
             SceneManager.LoadScene("Food_fighter's_VS2");
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButtonDown("Back"))
         {
             SceneManager.LoadScene("Food_fighter's_title");
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetButtonDown("Right"))
         {
             SceneManager.LoadScene("Food_fightter's_select");
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetButtonDown("Left"))
         {
             SceneManager.LoadScene("Food_fightter's_select");
         }
